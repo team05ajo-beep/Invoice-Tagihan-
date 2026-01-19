@@ -6,7 +6,7 @@ declare const htmlToImage: any;
 
 const CustomSignature: React.FC = () => (
   <div className="relative flex flex-col items-center">
-    <svg viewBox="0 0 300 150" className="w-64 h-28 -mb-4" preserveAspectRatio="xMidYMid meet">
+    <svg viewBox="0 0 300 150" className="w-56 h-24 -mb-2" preserveAspectRatio="xMidYMid meet">
       <path 
         d="M60,85 C45,65 55,40 75,35 C90,30 100,55 95,85 C90,120 75,135 65,115 C55,95 70,60 110,65 C130,68 120,95 130,95 C140,95 145,80 155,55 C165,30 175,45 170,85 C165,125 155,135 150,110 C145,85 160,50 190,55 C210,60 205,85 215,85 C225,85 235,65 245,40 M140,85 L160,80 M180,75 C200,65 220,60 250,55" 
         fill="none" 
@@ -24,7 +24,6 @@ const CustomSignature: React.FC = () => (
         opacity="0.6"
       />
     </svg>
-    <div className="h-4"></div>
   </div>
 );
 
@@ -126,7 +125,6 @@ const App: React.FC = () => {
         </button>
 
         <div className="space-y-6 pb-20">
-          {/* Header Section */}
           <div className="space-y-3">
             <h3 className="text-[9px] font-black text-red-500 uppercase tracking-tighter border-b border-stone-800 pb-1 text-center">Header & Brand</h3>
             <div className="grid grid-cols-2 gap-2">
@@ -149,7 +147,6 @@ const App: React.FC = () => {
             </div>
           </div>
 
-          {/* Customer & Contact Section */}
           <div className="space-y-3">
             <h3 className="text-[9px] font-black text-red-500 uppercase tracking-tighter border-b border-stone-800 pb-1 text-center">Customer & Contacts</h3>
             <div>
@@ -172,7 +169,6 @@ const App: React.FC = () => {
             </div>
           </div>
 
-          {/* Project Details Section */}
           <div className="space-y-3">
             <h3 className="text-[9px] font-black text-red-500 uppercase tracking-tighter border-b border-stone-800 pb-1 text-center">Project Details</h3>
             <div className="grid grid-cols-2 gap-2">
@@ -191,7 +187,6 @@ const App: React.FC = () => {
             </div>
           </div>
 
-          {/* Items Section */}
           <div className="space-y-3">
             <h3 className="text-[9px] font-black text-red-500 uppercase tracking-tighter border-b border-stone-800 pb-1 text-center">Pricing & Table</h3>
             {data.items.map((item, idx) => (
@@ -209,7 +204,6 @@ const App: React.FC = () => {
             </div>
           </div>
 
-          {/* Footer & Auth Section */}
           <div className="space-y-3">
             <h3 className="text-[9px] font-black text-red-500 uppercase tracking-tighter border-b border-stone-800 pb-1 text-center">Authority & Footer</h3>
             <div>
@@ -240,11 +234,11 @@ const App: React.FC = () => {
 
         <div 
           ref={invoiceRef}
-          style={{ width: '730px', height: '1080px' }}
+          style={{ width: '730px', height: '1080px', boxSizing: 'border-box' }}
           className="bg-white relative flex flex-col p-8 shadow-2xl select-none"
         >
           {/* LOGO & ADDRESS */}
-          <div className="flex flex-col items-center mb-6 pt-2">
+          <div className="flex flex-col items-center mb-5 pt-2">
             <h1 className="text-[48px] font-black tracking-[0.2em] text-black leading-none" style={{ fontWeight: 900 }}>{data.brandName}</h1>
             <p className="text-[12px] font-black tracking-[0.4em] text-black uppercase -mt-0.5">{data.parentCompany}</p>
             <p className="text-[8px] text-stone-500 text-center max-w-[500px] mt-2 uppercase font-bold leading-tight tracking-tight">
@@ -253,19 +247,19 @@ const App: React.FC = () => {
           </div>
 
           {/* MAIN CONTAINER */}
-          <div className="border border-stone-300 flex-1 flex flex-col relative p-5">
+          <div className="border border-stone-300 flex-1 flex flex-col relative p-5 overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-[2.5px] flex">
               <div className="flex-1 bg-[#1d4d2f]"></div>
               <div className="flex-1 bg-[#ae1f23]"></div>
               <div className="flex-1 bg-[#1d4d2f]"></div>
             </div>
 
-            <div className="text-center mt-6 mb-8">
-              <h2 className="text-[36px] font-black tracking-[0.15em] uppercase text-black" style={{ fontWeight: 900 }}>{data.invoiceTitle}</h2>
+            <div className="text-center mt-4 mb-6">
+              <h2 className="text-[28px] font-black tracking-[0.15em] uppercase text-black" style={{ fontWeight: 900 }}>{data.invoiceTitle}</h2>
               <p className="text-[9px] font-black text-stone-400 mt-1 uppercase tracking-[0.2em]">NOMOR SERI: {data.invoiceNumber}</p>
             </div>
 
-            <div className="grid grid-cols-[1fr_210px] gap-6 mb-6">
+            <div className="grid grid-cols-[1fr_210px] gap-6 mb-5">
               <div className="space-y-1">
                 <p className="text-[8px] font-black text-stone-400 uppercase tracking-widest">ALAMAT LENGKAP:</p>
                 <p className="text-[14px] font-black uppercase text-black leading-none mb-1">{data.customerName}</p>
@@ -300,7 +294,7 @@ const App: React.FC = () => {
                 </thead>
                 <tbody className="text-[10px] font-medium uppercase">
                   {data.items.map((item, idx) => (
-                    <tr key={item.id} className="border-b border-stone-200 h-11">
+                    <tr key={item.id} className="border-b border-stone-200 h-10">
                       <td className="border-r border-black text-center text-stone-400">{idx + 1}</td>
                       <td className="border-r border-black px-4 text-black font-black truncate max-w-[200px]">{item.description}</td>
                       <td className="border-r border-black text-center">{item.quantity || '-'}</td>
@@ -308,7 +302,7 @@ const App: React.FC = () => {
                       <td className="text-center font-black">{item.quantity ? formatCurrency(item.quantity * item.price) : '-'}</td>
                     </tr>
                   ))}
-                  <tr className="h-11 bg-stone-50 border-t border-black">
+                  <tr className="h-10 bg-stone-50 border-t border-black">
                     <td colSpan={4} className="px-4 text-[10px] font-black border-r border-black tracking-widest">TOTAL TAGIHAN</td>
                     <td className="text-center text-[12px] font-black underline underline-offset-4 decoration-2">{formatCurrency(total)}</td>
                   </tr>
@@ -316,11 +310,11 @@ const App: React.FC = () => {
               </table>
             </div>
 
-            <div className="grid grid-cols-[1fr_240px] gap-8 mt-8">
+            <div className="grid grid-cols-[1fr_240px] gap-8 mt-6">
               <div className="space-y-3">
                 <p className="text-[8px] font-black text-stone-400 uppercase border-b border-stone-100 pb-0.5 tracking-tight">KETENTUAN PEMBAYARAN</p>
                 <p className="text-[9px] font-black italic uppercase text-black">KETERANGAN:</p>
-                <div className="text-[9px] font-medium text-stone-600 space-y-1 leading-tight italic whitespace-pre-line">
+                <div className="text-[9px] font-medium text-stone-600 space-y-1 leading-tight italic whitespace-pre-line max-h-32 overflow-hidden">
                   {data.keterangan}
                 </div>
               </div>
@@ -341,30 +335,30 @@ const App: React.FC = () => {
               </div>
             </div>
 
-            <div className="mt-8 border border-stone-200 p-4 bg-white relative">
+            <div className="mt-6 border border-stone-200 p-3 bg-white relative">
                <div className="absolute top-0 left-0 w-1.5 h-full bg-red-800"></div>
-               <p className="text-[12px] font-black italic uppercase text-center leading-tight tracking-tight px-4 whitespace-pre-line">
+               <p className="text-[11px] font-black italic uppercase text-center leading-tight tracking-tight px-4 whitespace-pre-line">
                 " {data.specialNote} "
                </p>
             </div>
 
-            <div className="mt-auto flex justify-between items-end pb-2">
+            <div className="mt-auto flex justify-between items-end pb-1 overflow-hidden">
               <div className="space-y-2">
                 <p className="text-[8px] font-black text-stone-400 uppercase tracking-tighter">KODE TAGIHAN RESMI</p>
                 <div className="bg-black text-white px-4 py-1.5 text-[12px] font-black uppercase inline-block">
                   {data.parentCompany}
                 </div>
-                <div className="w-56 border border-stone-200">
+                <div className="w-56 border border-stone-200 overflow-hidden">
                   <Barcode value={data.paymentAccount} />
                 </div>
               </div>
 
               <div className="text-center w-60 flex flex-col items-center">
                 <p className="text-[10px] font-black text-stone-400 uppercase tracking-widest mb-1">{data.date}</p>
-                <div className="flex items-center justify-center mb-1">
+                <div className="flex items-center justify-center">
                   <CustomSignature />
                 </div>
-                <div className="w-full border-t border-black pt-1.5">
+                <div className="w-full border-t border-black pt-1">
                   <p className="text-[14px] font-black uppercase leading-none">{data.issuerName}</p>
                   <p className="text-[9px] font-bold text-stone-400 uppercase tracking-tighter">{data.issuerTitle}</p>
                 </div>
@@ -378,7 +372,7 @@ const App: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex justify-between items-center mt-5 text-[8px] font-bold text-stone-400 uppercase px-1 tracking-tight">
+          <div className="flex justify-between items-center mt-4 text-[8px] font-bold text-stone-400 uppercase px-1 tracking-tight">
             <p>© 2016 - 2025 {data.brandName.toUpperCase()} S.P.A. - ALL RIGHTS RESERVED. SIAE LICENCE # 2294/I/1936</p>
             <p className="text-black border-b-2 border-black tracking-[0.15em] text-[10px] font-black">DOKUMEN OTENTIK</p>
           </div>
